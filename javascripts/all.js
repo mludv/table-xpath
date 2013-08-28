@@ -13,8 +13,11 @@ runTest = function() {
       var element2 = $(this);
       var xpath = $.xpath(element1, element2);
       $info.html('Clicked on ' + element1.text() + ' and ' + element2.text() +
-                  ', xpath result: <br> ' + xpath
-                );
+                  ', xpath result: <br> ' + xpath);
+      $('<br><button class="btn pull-right">Run again</button>').prependTo($info)
+      .on('click', function() {
+        runTest();
+      });
     });
   });
 };
